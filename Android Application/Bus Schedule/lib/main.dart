@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:temp/driver.dart';
 import 'package:temp/homepage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:temp/ui/splash.dart';
+
+import 'screens/home.dart';
+import 'screens/mode_select.dart';
+import 'screens/prepare_ride.dart';
+import 'screens/review_ride.dart';
+import 'screens/turn_by_turn.dart';
 
 late SharedPreferences sharedPreferences;
 
@@ -15,22 +20,27 @@ void main() async {
   const String initialRoute = Splash.id;
   WidgetsFlutterBinding.ensureInitialized();
   sharedPreferences = await SharedPreferences.getInstance();
+
   await dotenv.load(fileName: "assets/config/.env");
-  runApp(MyApp(initialRoute: initialRoute));
+  runApp(const MyApp(initialRoute: initialRoute));
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key,required this.initialRoute}) : super(key: key);
   final String initialRoute;
-  MyApp({required this.initialRoute});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
+        Splash.id:(context) => const Splash(),
+        Home.id : (context) => const Home(),
         HomePage.id: (context) => const HomePage(title: 'Traveller'),
-        Driver.id: (context) => const Driver(),
-        Splash.id:(context) => const Splash()
+        PrepareRide.id :(context) => const PrepareRide(),
+        ModeSelector.id :(context) => const ModeSelector(),
+        ReviewRide.id :(context) => const ReviewRide(modifiedResponse: {}),
+        TurnByTurn.id :(context) => const TurnByTurn()
       },
       initialRoute: initialRoute,
       theme: ThemeData(

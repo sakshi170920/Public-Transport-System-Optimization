@@ -46,12 +46,12 @@ class _MyHomePageState extends State<HomePage> {
       },
       autofocus: true,
       cursorColor: Colors.white,
-      style: TextStyle(
+      style: const TextStyle(
         color: Colors.white,
         fontSize: 20,
       ),
       textInputAction: TextInputAction.search,
-      decoration: InputDecoration(
+      decoration: const InputDecoration(
         enabledBorder:
             UnderlineInputBorder(borderSide: BorderSide(color: Colors.white)),
         focusedBorder:
@@ -320,7 +320,7 @@ class SearchPage extends StatelessWidget {
           //     width: MediaQuery.of(context).size.width,
           //     decoration: BoxDecoration(
           //         image: DecorationImage(
-          //             image: AssetImage("images/bg.jpg"),
+          //             image: AssetImage("assets/image/bg.jpg"),
           //             fit: BoxFit.fitHeight,
           //             opacity: 0.5))),
           Column(
@@ -337,8 +337,8 @@ class SearchPage extends StatelessWidget {
                           Container(
                             // color: Colors.brown,
                             height: MediaQuery.of(context).size.height * 0.22,
-                            child:
-                                Image.asset("images/icons8-destination-62.png"),
+                            child: Image.asset(
+                                "assets/image/icons8-destination-62.png"),
                           ),
                         ],
                       ),
@@ -435,7 +435,8 @@ class SearchPage extends StatelessWidget {
                             IconButton(
                                 onPressed: () {},
                                 iconSize: 80,
-                                icon: Image.asset("images/passenger.png")),
+                                icon:
+                                    Image.asset("assets/image/passenger.png")),
                             Align(
                                 child: Padding(
                                   padding:
@@ -456,7 +457,7 @@ class SearchPage extends StatelessWidget {
                             IconButton(
                                 onPressed: () {},
                                 iconSize: 80,
-                                icon: Image.asset("images/bus-stop.png")),
+                                icon: Image.asset("assets/image/bus-stop.png")),
                             Align(
                                 child: Padding(
                                   padding:
@@ -477,7 +478,7 @@ class SearchPage extends StatelessWidget {
                             IconButton(
                                 onPressed: () {},
                                 iconSize: 80,
-                                icon: Image.asset("images/subway.png")),
+                                icon: Image.asset("assets/image/subway.png")),
                           ],
                         ),
                       )),
@@ -503,7 +504,8 @@ class SearchPage extends StatelessWidget {
               child: Row(
                 children: [
                   IconButton(
-                      onPressed: () {}, icon: Image.asset("images/gps.png")),
+                      onPressed: () {},
+                      icon: Image.asset("assets/image/gps.png")),
                   Text("Locate self")
                 ],
               ),
@@ -517,7 +519,7 @@ class SearchPage extends StatelessWidget {
                 children: [
                   IconButton(
                     onPressed: () {},
-                    icon: Image.asset("images/save.png"),
+                    icon: Image.asset("assets/image/save.png"),
                     iconSize: 2,
                   ),
                   Text("Saved Location")

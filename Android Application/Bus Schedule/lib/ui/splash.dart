@@ -1,13 +1,14 @@
-import 'dart:convert';
-
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
 import 'package:mapbox_gl/mapbox_gl.dart';
-import '../driver.dart';
+import '../screens/mode_select.dart';
+
+import '../helpers/mapbox_handler.dart';
 import '../main.dart';
 
 class Splash extends StatefulWidget {
-  static const String id = "Splash";
+  static const String id = "SplashScreen";
   const Splash({Key? key}) : super(key: key);
 
   @override
@@ -21,8 +22,7 @@ class _SplashState extends State<Splash> {
     initializeLocationAndSave();
   }
 
-  Future<void> initializeLocationAndSave() async {
-
+  void initializeLocationAndSave() async {
     // Ensure all permissions are collected for Locations
     Location _location = Location();
     bool? _serviceEnabled;
@@ -38,27 +38,44 @@ class _SplashState extends State<Splash> {
       _permissionGranted = await _location.requestPermission();
     }
 
-    // Get capture the current user location
+    // Get the current user location
     LocationData _locationData = await _location.getLocation();
-    LatLng currentLatLng =
+    LatLng currentLocation =
         LatLng(_locationData.latitude!, _locationData.longitude!);
+
+    // Get the current user address
+    String currentAddress =
+        (await getParsedReverseGeocoding(currentLocation))['place'];
 
     // Store the user location in sharedPreferences
     sharedPreferences.setDouble('latitude', _locationData.latitude!);
     sharedPreferences.setDouble('longitude', _locationData.longitude!);
+    sharedPreferences.setString('current-address', currentAddress);
 
-    Navigator.pushAndRemoveUntil(
-        context,
-        MaterialPageRoute(builder: (_) => const Driver()),
-        (route) => false);
-
+    Navigator.pushNamed(context, ModeSelector.id);
   }
 
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.black,
-      child: Center(child: Image.asset('assets/image/splash.png')),
+      color: Colors.indigo,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Icon(
+            CupertinoIcons.car_detailed,
+            color: Colors.white,
+            size: 120,
+          ),
+          Text(
+            'Mapbox Cabs',
+            style: Theme.of(context)
+                .textTheme
+                .headlineLarge
+                ?.copyWith(color: Colors.white, fontWeight: FontWeight.bold),
+          ),
+        ],
+      ),
     );
   }
 }
