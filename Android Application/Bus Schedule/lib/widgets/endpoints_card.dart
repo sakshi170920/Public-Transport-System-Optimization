@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:temp/helpers/user_mode.dart';
 
 import 'location_field.dart';
 
-Widget endpointsCard(TextEditingController sourceController,
+Widget endpointsCard(UserMode userMode,TextEditingController sourceController,
     TextEditingController destinationController) {
   return Card(
     elevation: 5,
@@ -28,9 +29,11 @@ Widget endpointsCard(TextEditingController sourceController,
             child: Column(
               children: [
                 LocationField(
+                    userMode: userMode,
                     isDestination: false,
                     textEditingController: sourceController),
                 LocationField(
+                    userMode: userMode,
                     isDestination: true,
                     textEditingController: destinationController),
               ],

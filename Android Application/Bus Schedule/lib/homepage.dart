@@ -5,6 +5,10 @@ import 'package:flutter/rendering.dart';
 import 'dart:async';
 // import 'package:floating_search_bar/floating_search_bar.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:temp/helpers/user_mode.dart';
+import 'package:temp/screens/prepare_ride.dart';
+
+import 'screens/review_ride.dart';
 
 bool _searchBoolean = false;
 List<int> _searchIndexList = [];
@@ -72,6 +76,14 @@ class _MyHomePageState extends State<HomePage> {
           index = _searchIndexList[index];
           return Card(child: ListTile(title: Text(_list[index])));
         });
+  }
+
+  void navigateToPrepareRide(BuildContext context)
+  {
+    Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (_) => const PrepareRide(userMode: UserMode.passengerMode)));
   }
 
   @override
@@ -209,6 +221,7 @@ class _MyHomePageState extends State<HomePage> {
           textColor: Colors.grey,
           subtitle: Text("Tap to oder"),
           trailing: Icon(Icons.navigate_next),
+          onTap: () => navigateToPrepareRide(context),
         ),
       ],
     )

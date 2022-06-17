@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:temp/helpers/user_mode.dart';
 import 'package:temp/homepage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:temp/screens/bus_list.dart';
 import 'package:temp/ui/splash.dart';
 
 import 'screens/home.dart';
@@ -37,10 +39,11 @@ class MyApp extends StatelessWidget {
         Splash.id:(context) => const Splash(),
         Home.id : (context) => const Home(),
         HomePage.id: (context) => const HomePage(title: 'Traveller'),
-        PrepareRide.id :(context) => const PrepareRide(),
+        PrepareRide.id :(context) => const PrepareRide(userMode: UserMode.passengerMode),
         ModeSelector.id :(context) => const ModeSelector(),
         ReviewRide.id :(context) => const ReviewRide(modifiedResponse: {}),
-        TurnByTurn.id :(context) => const TurnByTurn()
+        TurnByTurn.id :(context) => const TurnByTurn(),
+        BusListView.id : (context) => const BusListView()
       },
       initialRoute: initialRoute,
       theme: ThemeData(

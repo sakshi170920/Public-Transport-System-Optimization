@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:temp/helpers/user_mode.dart';
 import '../helpers/shared_prefs.dart';
 import '../screens/prepare_ride.dart';
 
@@ -41,8 +42,11 @@ class _HomeState extends State<Home> {
                     style: const TextStyle(color: Colors.indigo)),
                 const SizedBox(height: 20),
                 ElevatedButton(
-                    onPressed: () =>
-                        Navigator.pushNamed(context, PrepareRide.id),
+                    onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (_) => const PrepareRide(
+                                userMode: UserMode.driverMode))),
                     style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.all(20)),
                     child: Row(

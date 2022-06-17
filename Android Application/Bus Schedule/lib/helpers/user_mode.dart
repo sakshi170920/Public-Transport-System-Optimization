@@ -1,0 +1,3 @@
+enum UserMode{
+  passengerMode,driverMode 
+}

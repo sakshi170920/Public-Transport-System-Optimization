@@ -36,7 +36,15 @@ class _ReviewRideState extends State<ReviewRide> {
     _initialCameraPosition = CameraPosition(
         target: getCenterCoordinatesForPolyline(geometry), zoom: 11);
 
-    for (String type in ['source', 'destination']) {
+    List<String> tripPoints = [
+      'source',
+      'stop1',
+      'stop2',
+      'stop3',
+      'stop4',
+      'destination'
+    ];
+    for (String type in tripPoints) {
       _kTripEndPoints
           .add(CameraPosition(target: getTripLatLngFromSharedPrefs(type)));
     }

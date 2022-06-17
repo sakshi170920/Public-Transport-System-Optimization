@@ -57,8 +57,34 @@ class _TurnByTurnState extends State<TurnByTurn> {
         name: "Destination",
         latitude: destination.latitude,
         longitude: destination.longitude);
+    WayPoint stop1 = WayPoint(
+        name: "stop1",
+        latitude: 17.2849514,
+        longitude: 17.2849514);
+    WayPoint stop2 = WayPoint(
+        name: "stop2",
+        latitude: 17.282841,
+        longitude: 74.182764);
+    WayPoint stop3 = WayPoint(
+        name: "stop3",
+        latitude: 17.279665637110003,
+        longitude: 74.18007837061877);
+    WayPoint stop4 = WayPoint(
+        name: "stop4",
+        latitude: 17.27641986857224,
+        longitude: 74.18155626477282);
+    //17.284951462839498,17.284951462839498
+    //17.28284112294413, 74.18276412603862
+    //17.279665637110003, 74.18007837061877
+    //17.27641986857224, 74.18155626477282
     wayPoints.add(sourceWaypoint);
+    //wayPoints.add(stop1);
+    wayPoints.add(stop3);
+    //wayPoints.add(stop3);
+    wayPoints.add(stop4);
     wayPoints.add(destinationWaypoint);
+
+    debugPrint("source coordinates : ${sourceWaypoint.latitude}, ${sourceWaypoint.longitude}");
 
     // Start the trip
     await directions.startNavigation(wayPoints: wayPoints, options: _options);

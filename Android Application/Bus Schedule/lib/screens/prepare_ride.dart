@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:temp/helpers/user_mode.dart';
+import 'package:temp/screens/bus_list.dart';
+import 'package:temp/widgets/passenger_search_listview.dart';
 import '../widgets/endpoints_card.dart';
 import '../widgets/search_listview.dart';
 
@@ -6,7 +9,8 @@ import '../widgets/review_ride_fa_button.dart';
 
 class PrepareRide extends StatefulWidget {
   static const String id = "PrepareRideScreen";
-  const PrepareRide({Key? key}) : super(key: key);
+  final UserMode userMode;
+  const PrepareRide({Key? key, required this.userMode}) : super(key: key);
 
   @override
   State<PrepareRide> createState() => _PrepareRideState();
@@ -70,7 +74,8 @@ class _PrepareRideState extends State<PrepareRide> {
           physics: const ScrollPhysics(),
           child: Column(
             children: [
-              endpointsCard(sourceController, destinationController),
+              endpointsCard(
+                  widget.userMode, sourceController, destinationController),
               isLoading
                   ? const LinearProgressIndicator(
                       valueColor: AlwaysStoppedAnimation<Color>(Colors.white))
@@ -81,13 +86,22 @@ class _PrepareRideState extends State<PrepareRide> {
                       child: Center(
                           child: Text(hasResponded ? noResponse : noRequest)))
                   : Container(),
-              searchListView(responses, isResponseForDestination,
-                  destinationController, sourceController),
+              widget.userMode == UserMode.passengerMode
+                  ? passengerSearchListView(responses, isResponseForDestination,
+                      destinationController, sourceController)
+                  : searchListView(responses, isResponseForDestination,
+                      destinationController, sourceController)
             ],
           ),
         ),
       ),
-      floatingActionButton: reviewRideFaButton(context),
+      floatingActionButton: widget.userMode == UserMode.driverMode
+          ? reviewRideFaButton(context)
+          : ElevatedButton(
+              onPressed: () => {
+                    Navigator.pushNamed(context,BusListView.id)
+                  },
+              child: const Text("Show Buses")),
     );
   }
 }
