@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mapbox_gl/mapbox_gl.dart';
-import 'package:busoptimizer/helpers/user_mode.dart';
-import 'package:busoptimizer/screens/bus_list.dart';
 
 import '../helpers/mapbox_handler.dart';
 import '../helpers/shared_prefs.dart';

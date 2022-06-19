@@ -22,7 +22,7 @@ class _BusListViewState extends State<BusListView> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text("let's go from ${source}  =>  ${destination}"),
+      child: Text("let's go from $source  =>  $destination"),
     );
   }
 }

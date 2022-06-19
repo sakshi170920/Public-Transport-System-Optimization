@@ -42,9 +42,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       routes: {
         Splash.id: (context) => const Splash(),
-        LoginScreen.id: (context) => LoginScreen(),
-        WelcomeScreen.id: (context) => WelcomeScreen(),
-        RegistrationScreen.id: (context) => RegistrationScreen(),
+        LoginScreen.id: (context) => const LoginScreen(),
+        WelcomeScreen.id: (context) => const WelcomeScreen(),
+        RegistrationScreen.id: (context) => const RegistrationScreen(),
         Home.id: (context) => const Home(),
         PrepareRide.id: (context) =>
             const PrepareRide(userMode: UserMode.passengerMode),
