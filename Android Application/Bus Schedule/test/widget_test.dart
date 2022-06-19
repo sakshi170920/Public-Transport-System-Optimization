@@ -8,13 +8,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:temp/main.dart';
-import 'package:temp/ui/splash.dart';
+import 'package:busoptimizer/main.dart';
+import 'package:busoptimizer/ui/splash.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp(initialRoute: Splash.id,));
+    await tester.pumpWidget(const MyApp(
+      initialRoute: Splash.id,
+    ));
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

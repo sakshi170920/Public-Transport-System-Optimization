@@ -58,21 +58,16 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.indigo,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Icon(
-            CupertinoIcons.car_detailed,
-            color: Colors.white,
-            size: 120,
-          ),
+          Image.asset('assets/image/logo.png',width: 200,height: 200,),
           Text(
-            'Mapbox Cabs',
+            'Loading...',
             style: Theme.of(context)
                 .textTheme
                 .headlineLarge
-                ?.copyWith(color: Colors.white, fontWeight: FontWeight.bold),
+                ?.copyWith(color: Colors.black, fontWeight: FontWeight.bold),
           ),
         ],
       ),

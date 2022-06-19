@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:temp/helpers/user_mode.dart';
-import 'package:temp/screens/bus_list.dart';
-import 'package:temp/widgets/passenger_search_listview.dart';
+import 'package:busoptimizer/helpers/user_mode.dart';
+import 'package:busoptimizer/screens/bus_list.dart';
+import 'package:busoptimizer/widgets/passenger_search_listview.dart';
 import '../widgets/endpoints_card.dart';
 import '../widgets/search_listview.dart';
 
@@ -98,9 +98,7 @@ class _PrepareRideState extends State<PrepareRide> {
       floatingActionButton: widget.userMode == UserMode.driverMode
           ? reviewRideFaButton(context)
           : ElevatedButton(
-              onPressed: () => {
-                    Navigator.pushNamed(context,BusListView.id)
-                  },
+              onPressed: () => {Navigator.pushNamed(context, BusListView.id)},
               child: const Text("Show Buses")),
     );
   }

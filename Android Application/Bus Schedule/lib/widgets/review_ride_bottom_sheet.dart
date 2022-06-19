@@ -33,8 +33,8 @@ Widget reviewRideBottomSheet(
                     height: 40,
                     width: 40),
                 title: const Text('Premier',
-                    style: TextStyle(
-                        fontSize: 18, fontWeight: FontWeight.bold)),
+                    style:
+                        TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                 subtitle: Text('$distance km, $dropOffTime drop off'),
               ),
             ),
@@ -42,9 +42,9 @@ Widget reviewRideBottomSheet(
           Flexible(
             flex: 2,
             child: ElevatedButton(
-                onPressed: () => Navigator.pushNamed(context,TurnByTurn.id),
-                style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.all(20)),
+                onPressed: () => Navigator.pushNamed(context, TurnByTurn.id),
+                style:
+                    ElevatedButton.styleFrom(padding: const EdgeInsets.all(20)),
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [

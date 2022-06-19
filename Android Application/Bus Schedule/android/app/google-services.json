@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "895394296930",
+    "project_id": "bus-optimizer",
+    "storage_bucket": "bus-optimizer.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:895394296930:android:44b1b4516dae898cd24d3b",
+        "android_client_info": {
+          "package_name": "com.example.busoptimizer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "895394296930-ebc9orcrjvh64rjrma3nafkb0ieuhvg0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrHwidnRLNrJsqb3YnlUbvlr0RWCw8e5o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "895394296930-ebc9orcrjvh64rjrma3nafkb0ieuhvg0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:temp/homepage.dart';
+import '../helpers/user_mode.dart';
 import '../screens/home.dart';
+import 'prepare_ride.dart';
 
 class ModeSelector extends StatelessWidget {
   static const String id = "ModeSelectorScreen";
@@ -12,23 +13,25 @@ class ModeSelector extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: 
-          [
+          children: [
             Container(
               height: 70,
               width: 200,
               margin: const EdgeInsets.all(20),
               child: ElevatedButton(
-                  onPressed: () => Navigator.pushNamed(context,Home.id), 
-                  child: const Text("Driver Mode"),
-                ),
+                onPressed: () => Navigator.pushNamed(context, Home.id),
+                child: const Text("Driver Mode"),
+              ),
             ),
             Container(
               height: 70,
               width: 200,
-              margin: const EdgeInsets.all(20),              
+              margin: const EdgeInsets.all(20),
               child: ElevatedButton(
-                onPressed: () => Navigator.pushNamed(context,HomePage.id), 
+                onPressed: () => Navigator.push(
+                  context,MaterialPageRoute(builder: (_) => const PrepareRide(
+                                userMode: UserMode.passengerMode))
+                ),
                 child: const Text("Passenger Mode"),
               ),
             ),

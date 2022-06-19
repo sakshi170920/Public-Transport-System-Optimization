@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:temp/helpers/user_mode.dart';
+import 'package:busoptimizer/helpers/user_mode.dart';
 
 import 'location_field.dart';
 
-Widget endpointsCard(UserMode userMode,TextEditingController sourceController,
+Widget endpointsCard(UserMode userMode, TextEditingController sourceController,
     TextEditingController destinationController) {
   return Card(
     elevation: 5,

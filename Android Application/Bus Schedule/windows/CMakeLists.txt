@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
-project(temp LANGUAGES CXX)
+project(busoptimizer LANGUAGES CXX)
 
-set(BINARY_NAME "temp")
+set(BINARY_NAME "busoptimizer")
 
 cmake_policy(SET CMP0063 NEW)
 

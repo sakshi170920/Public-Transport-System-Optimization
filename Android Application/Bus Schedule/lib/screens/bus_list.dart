@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:temp/helpers/shared_prefs.dart';
+import 'package:busoptimizer/helpers/shared_prefs.dart';
 
 class BusListView extends StatefulWidget {
   static const String id = "BusListViewScreen";

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:temp/helpers/user_mode.dart';
+import 'package:busoptimizer/helpers/user_mode.dart';
 import '../helpers/shared_prefs.dart';
 import '../screens/prepare_ride.dart';
 
