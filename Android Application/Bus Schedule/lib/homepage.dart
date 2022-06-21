@@ -410,7 +410,6 @@ class SearchPage extends StatelessWidget {
                           color: Color.fromARGB(144, 252, 0, 0), //
 
                           borderRadius: BorderRadius.all(Radius.circular(10))),
-                      // height: MediaQuery.of(context).size.height * 0.56,
                       child: SingleChildScrollView(
                         child: Column(
                           // changing widget
