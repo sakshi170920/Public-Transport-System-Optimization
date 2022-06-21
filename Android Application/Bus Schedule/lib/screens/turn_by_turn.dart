@@ -1,6 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_mapbox_navigation/library.dart';
-import 'package:mapbox_gl/mapbox_gl.dart';
 import '../helpers/shared_prefs.dart';
 import '../screens/home.dart';
 
@@ -13,10 +14,7 @@ class TurnByTurn extends StatefulWidget {
 }
 
 class _TurnByTurnState extends State<TurnByTurn> {
-  // Waypoints to mark trip start and end
-  LatLng source = getTripLatLngFromSharedPrefs('source');
-  LatLng destination = getTripLatLngFromSharedPrefs('destination');
-  late WayPoint sourceWaypoint, destinationWaypoint;
+
   var wayPoints = <WayPoint>[];
 
   // Config variables for Mapbox Navigation
@@ -51,40 +49,12 @@ class _TurnByTurnState extends State<TurnByTurn> {
         language: "en");
 
     // Configure waypoints
-    sourceWaypoint = WayPoint(
-        name: "Source", latitude: source.latitude, longitude: source.longitude);
-    destinationWaypoint = WayPoint(
-        name: "Destination",
-        latitude: destination.latitude,
-        longitude: destination.longitude);
-    WayPoint stop1 = WayPoint(
-        name: "stop1",
-        latitude: 17.2849514,
-        longitude: 17.2849514);
-    WayPoint stop2 = WayPoint(
-        name: "stop2",
-        latitude: 17.282841,
-        longitude: 74.182764);
-    WayPoint stop3 = WayPoint(
-        name: "stop3",
-        latitude: 17.279665637110003,
-        longitude: 74.18007837061877);
-    WayPoint stop4 = WayPoint(
-        name: "stop4",
-        latitude: 17.27641986857224,
-        longitude: 74.18155626477282);
-    //17.284951462839498,17.284951462839498
-    //17.28284112294413, 74.18276412603862
-    //17.279665637110003, 74.18007837061877
-    //17.27641986857224, 74.18155626477282
-    wayPoints.add(sourceWaypoint);
-    //wayPoints.add(stop1);
-    wayPoints.add(stop3);
-    //wayPoints.add(stop3);
-    wayPoints.add(stop4);
-    wayPoints.add(destinationWaypoint);
+    Map routeInfo = jsonDecode(getDriverRouteFromSharedPrefs());
 
-    debugPrint("source coordinates : ${sourceWaypoint.latitude}, ${sourceWaypoint.longitude}");
+    routeInfo.forEach((key, value) {
+      wayPoints
+        .add(WayPoint(name: value[0], latitude: value[1][0], longitude: value[1][1]));
+     });
 
     // Start the trip
     await directions.startNavigation(wayPoints: wayPoints, options: _options);

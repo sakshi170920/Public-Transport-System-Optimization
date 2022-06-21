@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:mapbox_gl/mapbox_gl.dart';
 import '../helpers/mapbox_handler.dart';
-import '../helpers/shared_prefs.dart';
 
 import '../helpers/commons.dart';
 import '../widgets/review_ride_bottom_sheet.dart';
@@ -10,8 +9,7 @@ import '../widgets/review_ride_bottom_sheet.dart';
 class ReviewRide extends StatefulWidget {
   static const String id = "ReviewRideScreen";
   final Map modifiedResponse;
-  const ReviewRide({Key? key, required this.modifiedResponse})
-      : super(key: key);
+  const ReviewRide({Key? key, required this.modifiedResponse}) : super(key: key);
   @override
   State<ReviewRide> createState() => _ReviewRideState();
 }
@@ -21,32 +19,30 @@ class _ReviewRideState extends State<ReviewRide> {
   final List<CameraPosition> _kTripEndPoints = [];
   late MapboxMapController controller;
   late CameraPosition _initialCameraPosition;
-
+  late Map modifiedResponse;
   // Directions API response related
   late String distance;
   late String dropOffTime;
   late Map geometry;
+
+  Future getBusRouteDetails() async {
+  }
 
   @override
   void initState() {
     // initialise distance, dropOffTime, geometry
     _initialiseDirectionsResponse();
 
+    getBusRouteDetails();
+
+
     // initialise initialCameraPosition, address and trip end points
     _initialCameraPosition = CameraPosition(
         target: getCenterCoordinatesForPolyline(geometry), zoom: 11);
 
-    List<String> tripPoints = [
-      'source',
-      'stop1',
-      'stop2',
-      'stop3',
-      'stop4',
-      'destination'
-    ];
-    for (String type in tripPoints) {
+    for (var stop in widget.modifiedResponse["stops"]) {
       _kTripEndPoints
-          .add(CameraPosition(target: getTripLatLngFromSharedPrefs(type)));
+          .add(CameraPosition(target: LatLng(stop[0],stop[1])));
     }
     super.initState();
   }
@@ -133,7 +129,7 @@ class _ReviewRideState extends State<ReviewRide> {
                 onMapCreated: _onMapCreated,
                 onStyleLoadedCallback: _onStyleLoadedCallback,
                 myLocationTrackingMode: MyLocationTrackingMode.TrackingGPS,
-                minMaxZoomPreference: const MinMaxZoomPreference(15, 20),
+                minMaxZoomPreference: const MinMaxZoomPreference(12, 28),
               ),
             ),
             Flexible(

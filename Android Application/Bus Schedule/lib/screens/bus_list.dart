@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -21,7 +20,7 @@ class _BusListViewState extends State<BusListView> {
         "http://ec2-44-201-223-168.compute-1.amazonaws.com:4000/getAllCities";
     final response = await http.get(Uri.parse(url));
 
-    this.setState(() {
+    setState(() {
       data = jsonDecode(response.body);
       // for (i,j) in temp;
       // print(temp);
@@ -37,7 +36,7 @@ class _BusListViewState extends State<BusListView> {
     super.initState();
     source = getSourceAndDestination('source');
     destination = getSourceAndDestination('destination');
-    this.getData();
+    getData();
   }
 
   @override
@@ -116,12 +115,12 @@ class _BusListViewState extends State<BusListView> {
                         height: 8,
                       ),
                       Row(
-                        children: [
-                          const Icon(
+                        children: const [
+                          Icon(
                             Icons.directions,
                             color: Colors.white,
                           ),
-                          const SizedBox(
+                          SizedBox(
                             width: 5,
                           ),
                           Expanded(
@@ -133,7 +132,7 @@ class _BusListViewState extends State<BusListView> {
                               maxLines: 2,
                               // overflow: TextOverflow.ellipsis,
 
-                              style: const TextStyle(
+                              style: TextStyle(
                                 color: Colors.white,
                               ),
                             ),
@@ -144,12 +143,12 @@ class _BusListViewState extends State<BusListView> {
                         height: 5,
                       ),
                       Row(
-                        children: [
-                          const Icon(
+                        children: const [
+                          Icon(
                             Icons.directions_bus,
                             color: Colors.white,
                           ),
-                          const SizedBox(
+                          SizedBox(
                             width: 5,
                           ),
                           Text(
@@ -159,7 +158,7 @@ class _BusListViewState extends State<BusListView> {
                             // ' seater, ' +
                             // ['Non-AC', 'AC'][data['ac']!],
                             "JBCL, 50 seater, AC",
-                            style: const TextStyle(color: Colors.white),
+                            style: TextStyle(color: Colors.white),
                           ),
                         ],
                       ),
@@ -167,33 +166,33 @@ class _BusListViewState extends State<BusListView> {
                         height: 5,
                       ),
                       Row(
-                        children: [
-                          const Icon(
+                        children: const [
+                          Icon(
                             Icons.access_time_rounded,
                             color: Colors.white,
                           ),
-                          const SizedBox(
+                          SizedBox(
                             width: 5,
                           ),
                           Text(
                             // data['start_time'].toString(),
                             "start time",
-                            style: const TextStyle(color: Colors.white),
+                            style: TextStyle(color: Colors.white),
                           ),
-                          const SizedBox(
+                          SizedBox(
                             width: 16,
                           ),
-                          const Icon(
+                          Icon(
                             Icons.timelapse_rounded,
                             color: Colors.white,
                           ),
-                          const SizedBox(
+                          SizedBox(
                             width: 5,
                           ),
                           Text(
                             // data['duration'].toString(),
                             "duration",
-                            style: const TextStyle(color: Colors.white),
+                            style: TextStyle(color: Colors.white),
                           ),
                         ],
                       ),

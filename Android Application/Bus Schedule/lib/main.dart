@@ -1,3 +1,4 @@
+import 'package:busoptimizer/screens/bus_id.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -49,9 +50,11 @@ class MyApp extends StatelessWidget {
         PrepareRide.id: (context) =>
             const PrepareRide(userMode: UserMode.passengerMode),
         ModeSelector.id: (context) => const ModeSelector(),
-        ReviewRide.id: (context) => const ReviewRide(modifiedResponse: {}),
+        ReviewRide.id: (context) => const ReviewRide(modifiedResponse: {},),
         TurnByTurn.id: (context) => const TurnByTurn(),
-        BusListView.id: (context) => const BusListView()
+        BusListView.id: (context) => const BusListView(),
+        BusId.id: (context) => const BusId()
+
       },
       initialRoute: initialRoute,
       theme: ThemeData(
