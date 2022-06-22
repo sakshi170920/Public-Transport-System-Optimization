@@ -1,4 +1,7 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:mapbox_gl/mapbox_gl.dart';
 import '../helpers/mapbox_handler.dart';
@@ -9,7 +12,8 @@ import '../widgets/review_ride_bottom_sheet.dart';
 class ReviewRide extends StatefulWidget {
   static const String id = "ReviewRideScreen";
   final Map modifiedResponse;
-  const ReviewRide({Key? key, required this.modifiedResponse}) : super(key: key);
+  const ReviewRide({Key? key, required this.modifiedResponse})
+      : super(key: key);
   @override
   State<ReviewRide> createState() => _ReviewRideState();
 }
@@ -25,24 +29,17 @@ class _ReviewRideState extends State<ReviewRide> {
   late String dropOffTime;
   late Map geometry;
 
-  Future getBusRouteDetails() async {
-  }
-
   @override
   void initState() {
     // initialise distance, dropOffTime, geometry
     _initialiseDirectionsResponse();
 
-    getBusRouteDetails();
-
-
     // initialise initialCameraPosition, address and trip end points
     _initialCameraPosition = CameraPosition(
-        target: getCenterCoordinatesForPolyline(geometry), zoom: 11);
+        target: getCenterCoordinatesForPolyline(geometry), zoom: 5);
 
     for (var stop in widget.modifiedResponse["stops"]) {
-      _kTripEndPoints
-          .add(CameraPosition(target: LatLng(stop[0],stop[1])));
+      _kTripEndPoints.add(CameraPosition(target: LatLng(stop[0], stop[1])));
     }
     super.initState();
   }
@@ -57,14 +54,23 @@ class _ReviewRideState extends State<ReviewRide> {
     this.controller = controller;
   }
 
+  Future<Uint8List> loadMarkerImage() async {
+    var byteData = await rootBundle.load("assets/icon/circle.png");
+    return byteData.buffer.asUint8List();
+  }
+
   _onStyleLoadedCallback() async {
+
     for (int i = 0; i < _kTripEndPoints.length; i++) {
-      String iconImage = i == 0 ? 'circle' : 'square';
+      var markerImage = await loadMarkerImage();
+
+      controller.addImage('marker', markerImage);
       await controller.addSymbol(
         SymbolOptions(
           geometry: _kTripEndPoints[i].target,
-          iconSize: 0.1,
-          iconImage: "assets/icon/$iconImage.png",
+          iconSize: 1,
+          iconImage: "marker",
+          iconOffset: const Offset(0, -150),
         ),
       );
     }
@@ -129,7 +135,7 @@ class _ReviewRideState extends State<ReviewRide> {
                 onMapCreated: _onMapCreated,
                 onStyleLoadedCallback: _onStyleLoadedCallback,
                 myLocationTrackingMode: MyLocationTrackingMode.TrackingGPS,
-                minMaxZoomPreference: const MinMaxZoomPreference(12, 28),
+                minMaxZoomPreference: const MinMaxZoomPreference(6, 20),
               ),
             ),
             Flexible(
