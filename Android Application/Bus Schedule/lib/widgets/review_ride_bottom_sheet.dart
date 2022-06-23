@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 
 import '../helpers/shared_prefs.dart';
@@ -5,8 +7,9 @@ import '../screens/turn_by_turn.dart';
 
 Widget reviewRideBottomSheet(
     BuildContext context, String distance, String dropOffTime) {
-  String sourceAddress = getSourceAndDestinationPlaceText('source');
-  String destinationAddress = getSourceAndDestinationPlaceText('destination');
+  Map routeInfo =  jsonDecode(getDriverRouteFromSharedPrefs());
+  String sourceAddress = routeInfo["0"][0];
+  String destinationAddress = routeInfo[(routeInfo.length-1).toString()][0];
 
   return Card(
     clipBehavior: Clip.antiAlias,

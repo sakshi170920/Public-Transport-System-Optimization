@@ -1,7 +1,6 @@
+import 'package:busoptimizer/screens/bus_id.dart';
 import 'package:flutter/material.dart';
-import 'package:busoptimizer/helpers/user_mode.dart';
 import '../helpers/shared_prefs.dart';
-import '../screens/prepare_ride.dart';
 
 class Home extends StatefulWidget {
   static const String id = "HomeScreen";
@@ -42,11 +41,8 @@ class _HomeState extends State<Home> {
                     style: const TextStyle(color: Colors.indigo)),
                 const SizedBox(height: 20),
                 ElevatedButton(
-                    onPressed: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (_) => const PrepareRide(
-                                userMode: UserMode.driverMode))),
+                    onPressed: () => Navigator.pushNamed(
+                        context,BusId.id),
                     style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.all(20)),
                     child: Row(

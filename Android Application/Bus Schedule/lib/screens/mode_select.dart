@@ -10,6 +10,10 @@ class ModeSelector extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Center(child: Text("Mode")),
+        automaticallyImplyLeading: false,
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -20,7 +24,10 @@ class ModeSelector extends StatelessWidget {
               margin: const EdgeInsets.all(20),
               child: ElevatedButton(
                 onPressed: () => Navigator.pushNamed(context, Home.id),
-                child: const Text("Driver Mode"),
+                child: const Text(
+                  "Driver Mode",
+                  style: TextStyle(fontSize: 20),
+                ),
               ),
             ),
             Container(
@@ -29,10 +36,14 @@ class ModeSelector extends StatelessWidget {
               margin: const EdgeInsets.all(20),
               child: ElevatedButton(
                 onPressed: () => Navigator.push(
-                  context,MaterialPageRoute(builder: (_) => const PrepareRide(
-                                userMode: UserMode.passengerMode))
+                    context,
+                    MaterialPageRoute(
+                        builder: (_) => const PrepareRide(
+                            userMode: UserMode.passengerMode))),
+                child: const Text(
+                  "Passenger Mode",
+                  style: TextStyle(fontSize: 20),
                 ),
-                child: const Text("Passenger Mode"),
               ),
             ),
           ],
