@@ -22,10 +22,10 @@ class BusListView extends StatefulWidget {
 }
 
 class _BusListViewState extends State<BusListView> {
-
   bool isValidInput = true;
   int sourceInd = 0;
   int destinationInd = 0;
+  double srcLan = 0, srcLong = 0, destLan = 0, destLong = 0;
   Map data = {};
   Map indexingOfData = {};
   Future<String> getData() async {
@@ -33,7 +33,9 @@ class _BusListViewState extends State<BusListView> {
         "http://ec2-44-201-223-168.compute-1.amazonaws.com:4000/getBusesBySrcDest?src=" +
             widget.routeDetails["source"].replaceAll("\"", "").toLowerCase() +
             "&dest=" +
-             widget.routeDetails["destination"].replaceAll("\"", "").toLowerCase();
+            widget.routeDetails["destination"]
+                .replaceAll("\"", "")
+                .toLowerCase();
     final response = await http.get(Uri.parse(url));
 
     this.setState(() {
@@ -45,7 +47,6 @@ class _BusListViewState extends State<BusListView> {
         if (apiData == "Invalid") {
           isValidInput = false;
         }
-        print(apiData);
       }
       print(data);
 
@@ -60,10 +61,11 @@ class _BusListViewState extends State<BusListView> {
           if (data[i][j] is String) {
             continue;
           }
-          print(data[i][j][0]);
-          if (data[i][j][0].toLowerCase() ==  widget.routeDetails["source"]) {
-            // print("worked");
+
+          if (data[i][j][0] == widget.routeDetails["source"].toString()) {
             sourceInd = j;
+            srcLan = data[i][j][1][0];
+            srcLong = data[i][j][1][1];
             break;
           }
         }
@@ -72,8 +74,10 @@ class _BusListViewState extends State<BusListView> {
           if (data[i][j] is String) {
             continue;
           }
-          if (data[i][j][0].toLowerCase() ==  widget.routeDetails["destination"]) {
+          if (data[i][j][0] == widget.routeDetails["destination"]) {
             destinationInd = j;
+            destLan = data[i][j][1][0];
+            destLong = data[i][j][1][1];
             break;
           }
         }
@@ -133,7 +137,9 @@ class _BusListViewState extends State<BusListView> {
                                         fontSize: 12, color: Colors.white),
                                   ),
                                   Text(
-                                     widget.routeDetails["source"].replaceAll("\"", "").toUpperCase(),
+                                    widget.routeDetails["source"]
+                                        .replaceAll("\"", "")
+                                        .toUpperCase(),
                                     style: const TextStyle(
                                         fontSize: 14,
                                         color: Colors.white,
@@ -157,7 +163,7 @@ class _BusListViewState extends State<BusListView> {
                                         fontSize: 12, color: Colors.white),
                                   ),
                                   Text(
-                                     widget.routeDetails["destination"]
+                                    widget.routeDetails["destination"]
                                         .replaceAll("\"", "")
                                         .toUpperCase(),
                                     style: const TextStyle(
@@ -183,7 +189,7 @@ class _BusListViewState extends State<BusListView> {
                               ),
                               Expanded(
                                 child: Text(
-                                  " ${ widget.routeDetails["distance"]} ,via " +
+                                  " Via " +
                                       data[indexingOfData[index]]
                                               [destinationInd - 1]
                                           [0], // hear need to add kilometer
@@ -209,7 +215,7 @@ class _BusListViewState extends State<BusListView> {
                                 width: 5,
                               ),
                               Text(
-                                "JBCL, 50 seater, AC",
+                                "MSRTC, 50 seater, AC",
                                 style: const TextStyle(color: Colors.white),
                               ),
                             ],
@@ -242,7 +248,7 @@ class _BusListViewState extends State<BusListView> {
                                 width: 5,
                               ),
                               Text(
-                                // data['duration'].toString(),
+                                // widget.routeDetails["duration"],
                                 "duration",
                                 style: const TextStyle(color: Colors.white),
                               ),
