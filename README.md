@@ -11,9 +11,8 @@ Identifying the most effective route connections w.r.t traffic and population
 
 2. **Dynamic Timetable Generation**  
  Timetable generation considering peak hour traffic and seasonal patterns!
- 
- 3. **Analysis**  
-Comprehensive report on improvement by  new timetable and routes performance w.r.t previous data
+ Along with bus allocation ensuring optimal utilization of resources
+
 
  4. **Application (Passengers)**  
 Real-time information and recommendation about buses 
