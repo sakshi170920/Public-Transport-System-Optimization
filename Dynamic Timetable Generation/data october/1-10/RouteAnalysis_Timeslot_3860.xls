@@ -1,0 +1,747 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+    
+ <head>
+     <script language="JavaScript" src="http://192.168.30.2/bestetim_new/js/calendar_us.js"></script>
+    <link rel="stylesheet" href="http://192.168.30.2/bestetim_new/css/calendar.css">
+        <style>
+
+     
+    body {
+	font: normal 13px auto "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	color: black;
+	background: #E6EAE9;
+}
+a {
+	color: #c75f3e;
+}
+
+#mytable {
+	width: 700px;
+	padding: 0;
+	margin: 0;
+
+}
+
+
+th {
+	font: normal 12px "Verdana", Arial, Helvetica, sans-serif;
+	color: black;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	text-align: left;
+	padding: 2px 2px 2px 3px;
+
+}
+
+th.nobg {
+	border-top: 0;
+	border-left: 0;
+	background: none;
+}
+
+td {
+        font: normal 12px "Verdana", Arial, Helvetica, sans-serif;
+	color: black;
+	color: black;
+}
+
+
+td.alt {
+	
+	color: #797268;
+}
+
+th.spec {
+	
+	border-top: 0;
+	
+	font: normal 12px "Verdana", Arial, Helvetica, sans-serif;
+}
+
+th.specalt {
+	
+	border-top: 0;
+	
+	font: normal 12px "Verdana",Arial, Helvetica, sans-serif;
+	color: #797268;
+}
+
+        </style>
+
+    </head>
+
+<body>
+ </form>
+  
+
+           <table border="1">
+        <tr>
+            <td><b>Route:- 3860</b></td>
+            <td colspan="8" align="center"><b>Date:- 10/01/2017</b></td>
+            <td colspan="8" align="center"><b>Day:- Sunday</b></td>
+            <td colspan="8" align="center"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td colspan="8" align="center"><b>UP</b></td>
+            <td colspan="8" align="center"><b>DOWN</b></td>
+            <td colspan="8" align="center"><b>TOTAL</b></td>
+        </tr>
+        <tr>
+        <td align="center"><b>Time Slab</b></td>
+        <td colspan="2" align="center"><b>Trips</b></td>
+        <td colspan="2" align="center"><b>Passenger</b></td>
+        <td colspan="2" align="center"><b>Revenue</b></td>
+        <td colspan="2" align="center"><b>Run KM</b></td>
+        <td colspan="2" align="center"><b>Trips</b></td>
+        <td colspan="2" align="center"><b>Passenger</b></td>
+        <td colspan="2" align="center"><b>Revenue</b></td>
+        <td colspan="2" align="center"><b>Run KM</b></td>
+        <td colspan="2" align="center"><b>Trips</b></td>
+        <td colspan="2" align="center"><b>Passenger</b></td>
+        <td colspan="2" align="center"><b>Revenue</b></td>
+        <td colspan="2" align="center"><b>Run KM</b></td>
+        </tr>
+        <tr>
+        <td align="center"><b>(HH:MM:SS)</b></td>
+        <td align="center"><b>Total</b></td>
+        <td align="center"><b>%</b></td>
+        <td align="center"><b>Total</b></td>
+        <td align="center"><b>%</b></td>
+        <td align="center"><b>Total</b></td>
+        <td align="center"><b>%</b></td>
+        <td align="center"><b>Total</b></td>
+        <td align="center"><b>%</b></td>
+        <td align="center"><b>Total</b></td>
+        <td align="center"><b>%</b></td>
+        <td align="center"><b>Total</b></td>
+        <td align="center"><b>%</b></td>
+        <td align="center"><b>Total</b></td>
+        <td align="center"><b>%</b></td>
+        <td align="center"><b>Total</b></td>
+        <td align="center"><b>%</b></td>
+        <td align="center"><b>Total</b></td>
+        <td align="center"><b>%</b></td>
+        <td align="center"><b>Total</b></td>
+        <td align="center"><b>%</b></td>
+        <td align="center"><b>Total</b></td>
+        <td align="center"><b>%</b></td>
+        <td align="center"><b>Total</b></td>
+        <td align="center"><b>%</b></td>
+        
+        </tr>
+
+   
+
+              <tr>
+            <td><b>00:00:01-05:00:00</b></td>
+            <td></td>
+            <td>0</td>
+            <td></td>
+            <td>0</td>
+            <td></td>
+            <td>0</td>
+            <td></td>
+            <td>0</td>
+            <td></td>
+            <td>0</td>
+            <td></td>
+            <td>0</td>
+            <td></td>
+            <td>0</td>
+            <td></td>
+            <td>0</td>
+            <td></td>
+            <td>0</td>
+            <td></td>
+            <td>0</td>
+            <td></td>
+            <td>0</td>
+            <td></td>
+            <td>0</td>
+
+        </tr>
+
+                   <tr>
+            <td><b>05:00:01-06:00:00</b></td>
+            <td></td>
+            <td>0</td>
+            <td></td>
+            <td>0</td>
+            <td></td>
+            <td>0</td>
+            <td></td>
+            <td>0</td>
+            <td></td>
+            <td>0</td>
+            <td></td>
+            <td>0</td>
+            <td></td>
+            <td>0</td>
+            <td></td>
+            <td>0</td>
+            <td></td>
+            <td>0</td>
+            <td></td>
+            <td>0</td>
+            <td></td>
+            <td>0</td>
+            <td></td>
+            <td>0</td>
+
+        </tr>
+
+                   <tr>
+            <td><b>06:00:01-07:00:00</b></td>
+            <td>3</td>
+            <td>8.33</td>
+            <td>4</td>
+            <td>1</td>
+            <td>20</td>
+            <td>0.59</td>
+            <td>12.00</td>
+            <td>8.33</td>
+            <td>4</td>
+            <td>10.81</td>
+            <td>18</td>
+            <td>4.69</td>
+            <td>148</td>
+            <td>4.08</td>
+            <td>16.00</td>
+            <td>10.81</td>
+            <td>7</td>
+            <td>9.59</td>
+            <td>22</td>
+            <td>2.81</td>
+            <td>168</td>
+            <td>2.4</td>
+            <td>28</td>
+            <td>9.59</td>
+
+        </tr>
+
+                   <tr>
+            <td><b>07:00:01-08:00:00</b></td>
+            <td>3</td>
+            <td>8.33</td>
+            <td>10</td>
+            <td>2.51</td>
+            <td>76</td>
+            <td>2.25</td>
+            <td>6.00</td>
+            <td>4.17</td>
+            <td>5</td>
+            <td>13.51</td>
+            <td>35</td>
+            <td>9.11</td>
+            <td>321</td>
+            <td>8.84</td>
+            <td>20.00</td>
+            <td>13.51</td>
+            <td>8</td>
+            <td>10.96</td>
+            <td>45</td>
+            <td>5.75</td>
+            <td>397</td>
+            <td>5.66</td>
+            <td>26</td>
+            <td>8.9</td>
+
+        </tr>
+
+                   <tr>
+            <td><b>08:00:01-09:00:00</b></td>
+            <td>4</td>
+            <td>11.11</td>
+            <td>8</td>
+            <td>2.01</td>
+            <td>48</td>
+            <td>1.42</td>
+            <td>28.00</td>
+            <td>19.44</td>
+            <td>4</td>
+            <td>10.81</td>
+            <td>30</td>
+            <td>7.81</td>
+            <td>277</td>
+            <td>7.63</td>
+            <td>16.00</td>
+            <td>10.81</td>
+            <td>8</td>
+            <td>10.96</td>
+            <td>38</td>
+            <td>4.85</td>
+            <td>325</td>
+            <td>4.64</td>
+            <td>44</td>
+            <td>15.07</td>
+
+        </tr>
+
+                   <tr>
+            <td><b>09:00:01-10:00:00</b></td>
+            <td>3</td>
+            <td>8.33</td>
+            <td>36</td>
+            <td>9.02</td>
+            <td>304</td>
+            <td>9</td>
+            <td>21.00</td>
+            <td>14.58</td>
+            <td>3</td>
+            <td>8.11</td>
+            <td>43</td>
+            <td>11.2</td>
+            <td>496</td>
+            <td>13.66</td>
+            <td>12.00</td>
+            <td>8.11</td>
+            <td>6</td>
+            <td>8.22</td>
+            <td>79</td>
+            <td>10.09</td>
+            <td>800</td>
+            <td>11.42</td>
+            <td>33</td>
+            <td>11.3</td>
+
+        </tr>
+
+                   <tr>
+            <td><b>10:00:01-11:00:00</b></td>
+            <td>4</td>
+            <td>11.11</td>
+            <td>19</td>
+            <td>4.76</td>
+            <td>134</td>
+            <td>3.97</td>
+            <td>16.00</td>
+            <td>11.11</td>
+            <td>5</td>
+            <td>13.51</td>
+            <td>34</td>
+            <td>8.85</td>
+            <td>294</td>
+            <td>8.1</td>
+            <td>20.00</td>
+            <td>13.51</td>
+            <td>9</td>
+            <td>12.33</td>
+            <td>53</td>
+            <td>6.77</td>
+            <td>428</td>
+            <td>6.11</td>
+            <td>36</td>
+            <td>12.33</td>
+
+        </tr>
+
+                   <tr>
+            <td><b>11:00:01-12:00:00</b></td>
+            <td>2</td>
+            <td>5.56</td>
+            <td>24</td>
+            <td>6.02</td>
+            <td>192</td>
+            <td>5.69</td>
+            <td>8.00</td>
+            <td>5.56</td>
+            <td>1</td>
+            <td>2.7</td>
+            <td>6</td>
+            <td>1.56</td>
+            <td>63</td>
+            <td>1.74</td>
+            <td>4.00</td>
+            <td>2.7</td>
+            <td>3</td>
+            <td>4.11</td>
+            <td>30</td>
+            <td>3.83</td>
+            <td>255</td>
+            <td>3.64</td>
+            <td>12</td>
+            <td>4.11</td>
+
+        </tr>
+
+                   <tr>
+            <td><b>12:00:01-13:00:00</b></td>
+            <td>2</td>
+            <td>5.56</td>
+            <td>9</td>
+            <td>2.26</td>
+            <td>79</td>
+            <td>2.34</td>
+            <td>5.80</td>
+            <td>4.03</td>
+            <td>2</td>
+            <td>5.41</td>
+            <td>15</td>
+            <td>3.91</td>
+            <td>190</td>
+            <td>5.23</td>
+            <td>8.00</td>
+            <td>5.41</td>
+            <td>4</td>
+            <td>5.48</td>
+            <td>24</td>
+            <td>3.07</td>
+            <td>269</td>
+            <td>3.84</td>
+            <td>14</td>
+            <td>4.79</td>
+
+        </tr>
+
+                   <tr>
+            <td><b>13:00:01-14:00:00</b></td>
+            <td>1</td>
+            <td>2.78</td>
+            <td>15</td>
+            <td>3.76</td>
+            <td>118</td>
+            <td>3.49</td>
+            <td>4.00</td>
+            <td>2.78</td>
+            <td>1</td>
+            <td>2.7</td>
+            <td>14</td>
+            <td>3.65</td>
+            <td>120</td>
+            <td>3.3</td>
+            <td>2.90</td>
+            <td>1.96</td>
+            <td>2</td>
+            <td>2.74</td>
+            <td>29</td>
+            <td>3.7</td>
+            <td>238</td>
+            <td>3.4</td>
+            <td>7</td>
+            <td>2.4</td>
+
+        </tr>
+
+                   <tr>
+            <td><b>14:00:01-15:00:00</b></td>
+            <td>1</td>
+            <td>2.78</td>
+            <td>3</td>
+            <td>0.75</td>
+            <td>30</td>
+            <td>0.89</td>
+            <td>4.00</td>
+            <td>2.78</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0.00</td>
+            <td>0</td>
+            <td>1</td>
+            <td>1.37</td>
+            <td>3</td>
+            <td>0.38</td>
+            <td>30</td>
+            <td>0.43</td>
+            <td>4</td>
+            <td>1.37</td>
+
+        </tr>
+
+                   <tr>
+            <td><b>15:00:01-16:00:00</b></td>
+            <td>1</td>
+            <td>2.78</td>
+            <td>38</td>
+            <td>9.52</td>
+            <td>298</td>
+            <td>8.82</td>
+            <td>4.00</td>
+            <td>2.78</td>
+            <td>1</td>
+            <td>2.7</td>
+            <td>8</td>
+            <td>2.08</td>
+            <td>78</td>
+            <td>2.15</td>
+            <td>4.00</td>
+            <td>2.7</td>
+            <td>2</td>
+            <td>2.74</td>
+            <td>46</td>
+            <td>5.87</td>
+            <td>376</td>
+            <td>5.37</td>
+            <td>8</td>
+            <td>2.74</td>
+
+        </tr>
+
+                   <tr>
+            <td><b>16:00:01-17:00:00</b></td>
+            <td>1</td>
+            <td>2.78</td>
+            <td>7</td>
+            <td>1.75</td>
+            <td>70</td>
+            <td>2.07</td>
+            <td>4.00</td>
+            <td>2.78</td>
+            <td>1</td>
+            <td>2.7</td>
+            <td>10</td>
+            <td>2.6</td>
+            <td>100</td>
+            <td>2.75</td>
+            <td>4.00</td>
+            <td>2.7</td>
+            <td>2</td>
+            <td>2.74</td>
+            <td>17</td>
+            <td>2.17</td>
+            <td>170</td>
+            <td>2.43</td>
+            <td>8</td>
+            <td>2.74</td>
+
+        </tr>
+
+                   <tr>
+            <td><b>17:00:01-18:00:00</b></td>
+            <td>1</td>
+            <td>2.78</td>
+            <td>19</td>
+            <td>4.76</td>
+            <td>164</td>
+            <td>4.86</td>
+            <td>5.90</td>
+            <td>4.1</td>
+            <td>2</td>
+            <td>5.41</td>
+            <td>28</td>
+            <td>7.29</td>
+            <td>274</td>
+            <td>7.55</td>
+            <td>8.00</td>
+            <td>5.41</td>
+            <td>3</td>
+            <td>4.11</td>
+            <td>47</td>
+            <td>6</td>
+            <td>438</td>
+            <td>6.25</td>
+            <td>14</td>
+            <td>4.79</td>
+
+        </tr>
+
+                   <tr>
+            <td><b>18:00:01-19:00:00</b></td>
+            <td>2</td>
+            <td>5.56</td>
+            <td>38</td>
+            <td>9.52</td>
+            <td>352</td>
+            <td>10.42</td>
+            <td>8.00</td>
+            <td>5.56</td>
+            <td>1</td>
+            <td>2.7</td>
+            <td>37</td>
+            <td>9.64</td>
+            <td>327</td>
+            <td>9.01</td>
+            <td>4.00</td>
+            <td>2.7</td>
+            <td>3</td>
+            <td>4.11</td>
+            <td>75</td>
+            <td>9.58</td>
+            <td>679</td>
+            <td>9.69</td>
+            <td>12</td>
+            <td>4.11</td>
+
+        </tr>
+
+                   <tr>
+            <td><b>19:00:01-20:00:00</b></td>
+            <td>2</td>
+            <td>5.56</td>
+            <td>63</td>
+            <td>15.79</td>
+            <td>577</td>
+            <td>17.09</td>
+            <td>8.00</td>
+            <td>5.56</td>
+            <td>2</td>
+            <td>5.41</td>
+            <td>18</td>
+            <td>4.69</td>
+            <td>125</td>
+            <td>3.44</td>
+            <td>8.00</td>
+            <td>5.41</td>
+            <td>4</td>
+            <td>5.48</td>
+            <td>81</td>
+            <td>10.34</td>
+            <td>702</td>
+            <td>10.02</td>
+            <td>16</td>
+            <td>5.48</td>
+
+        </tr>
+
+                   <tr>
+            <td><b>20:00:01-21:00:00</b></td>
+            <td>3</td>
+            <td>8.33</td>
+            <td>52</td>
+            <td>13.03</td>
+            <td>436</td>
+            <td>12.91</td>
+            <td>12.00</td>
+            <td>8.33</td>
+            <td>3</td>
+            <td>8.11</td>
+            <td>41</td>
+            <td>10.68</td>
+            <td>383</td>
+            <td>10.55</td>
+            <td>12.00</td>
+            <td>8.11</td>
+            <td>6</td>
+            <td>8.22</td>
+            <td>93</td>
+            <td>11.88</td>
+            <td>819</td>
+            <td>11.69</td>
+            <td>24</td>
+            <td>8.22</td>
+
+        </tr>
+
+                   <tr>
+            <td><b>21:00:01-22:00:00</b></td>
+            <td>2</td>
+            <td>5.56</td>
+            <td>50</td>
+            <td>12.53</td>
+            <td>445</td>
+            <td>13.18</td>
+            <td>8.00</td>
+            <td>5.56</td>
+            <td>1</td>
+            <td>2.7</td>
+            <td>47</td>
+            <td>12.24</td>
+            <td>435</td>
+            <td>11.98</td>
+            <td>4.00</td>
+            <td>2.7</td>
+            <td>3</td>
+            <td>4.11</td>
+            <td>97</td>
+            <td>12.39</td>
+            <td>880</td>
+            <td>12.56</td>
+            <td>12</td>
+            <td>4.11</td>
+
+        </tr>
+
+                   <tr>
+            <td><b>22:00:01-23:00:00</b></td>
+            <td>1</td>
+            <td>2.78</td>
+            <td>4</td>
+            <td>1</td>
+            <td>34</td>
+            <td>1.01</td>
+            <td>4.00</td>
+            <td>2.78</td>
+            <td>1</td>
+            <td>2.7</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>4.00</td>
+            <td>2.7</td>
+            <td>2</td>
+            <td>2.74</td>
+            <td>4</td>
+            <td>0.51</td>
+            <td>34</td>
+            <td>0.49</td>
+            <td>8</td>
+            <td>2.74</td>
+
+        </tr>
+
+                   <tr>
+            <td><b>23:00:01-24:00:00</b></td>
+            <td></td>
+            <td>0</td>
+            <td></td>
+            <td>0</td>
+            <td></td>
+            <td>0</td>
+            <td></td>
+            <td>0</td>
+            <td></td>
+            <td>0</td>
+            <td></td>
+            <td>0</td>
+            <td></td>
+            <td>0</td>
+            <td></td>
+            <td>0</td>
+            <td></td>
+            <td>0</td>
+            <td></td>
+            <td>0</td>
+            <td></td>
+            <td>0</td>
+            <td></td>
+            <td>0</td>
+
+        </tr>
+
+                <tr>
+            <td></td>
+            <td>36</td>
+            <td></td>
+            <td>399</td>
+            <td></td>
+            <td>3377</td>
+            <td></td>
+            <td>144.00</td> 
+            <td></td>
+            <td>37</td>
+            <td></td>
+            <td>384</td>
+            <td></td>
+            <td>3631</td>
+            <td></td>
+            <td>148.00</td>
+            <td></td>
+            <td>73</td>
+            <td></td>
+            <td>783</td>
+            <td></td>
+            <td>7008</td>
+            <td></td>
+            <td>292</td>
+            <td></td>
+        </tr>
+
+        </table>

@@ -65,8 +65,8 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                     ),
                     child: AnimatedTextKit(
                       animatedTexts: [
-                        TyperAnimatedText('Bus Optimizy',
-                            textStyle: const TextStyle(color: Colors.black),
+                        TyperAnimatedText('OptiBus',
+                            textStyle: const TextStyle(color: Colors.black,fontWeight: FontWeight.bold),
                             textAlign: TextAlign.center),
                       ],
                     ),
