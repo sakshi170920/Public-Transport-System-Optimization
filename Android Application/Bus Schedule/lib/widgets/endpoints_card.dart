@@ -8,7 +8,7 @@ Widget endpointsCard(TextEditingController sourceController,
   return Card(
     elevation: 5,
     clipBehavior: Clip.antiAlias,
-    margin: const EdgeInsets.all(0),
+    margin: const EdgeInsets.all(6),
     child: Container(
       padding: const EdgeInsets.all(15),
       child: Row(

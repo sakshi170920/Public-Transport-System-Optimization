@@ -86,12 +86,6 @@ class _BusListViewState extends State<BusListView> {
     return "Success!";
   }
 
-  // _initialiseDirectionsResponse(Map modifiedResponse) {
-  //   distance = (modifiedResponse['distance'] / 1000).toStringAsFixed(1);
-  //   dropOffTime = getDropOffTime(widget.modifiedResponse['duration']);
-  //   geometry = widget.modifiedResponse['geometry'];
-  // }
-
   @override
   void initState() {
     super.initState();
@@ -248,8 +242,7 @@ class _BusListViewState extends State<BusListView> {
                                 width: 5,
                               ),
                               Text(
-                                // widget.routeDetails["duration"],
-                                "duration",
+                                widget.routeDetails["duration"],
                                 style: const TextStyle(color: Colors.white),
                               ),
                             ],

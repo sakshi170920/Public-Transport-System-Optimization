@@ -1,17 +1,12 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:busoptimizer/helpers/user_mode.dart';
 import 'package:busoptimizer/screens/bus_list.dart';
 import 'package:busoptimizer/widgets/passenger_search_listview.dart';
-import '../helpers/commons.dart';
 import '../helpers/mapbox_handler.dart';
 import '../helpers/shared_prefs.dart';
 import '../main.dart';
 import '../widgets/endpoints_card.dart';
-import '../widgets/search_listview.dart';
-
-import '../widgets/review_ride_fa_button.dart';
 
 class PrepareRide extends StatefulWidget {
   static const String id = "PrepareRideScreen";
@@ -105,16 +100,17 @@ class _PrepareRideState extends State<PrepareRide> {
             String source = sourceInfo["name"];
             String destination = destinationInfo["name"];
             List src = sourceInfo["location"];
-            List dest = sourceInfo["location"];
+            List dest = destinationInfo["location"];
             String routeInfo =
                 "{\"0\":[\"$source\",$src],\"1\":[\"$destination\",$dest]}";
             sharedPreferences.setString("driverRoute", routeInfo);
             Map result = await getDirectionsAPIResponse();
             var distance = (result['distance'] / 1000).toStringAsFixed(1);
-            var dropOffTime = getDropOffTime(result['duration']);
+            var min = (result['duration'] / 60).round();
+            var sec = (result['duration'] % 60).round();
             Map routeDetails = {
               "distance": distance,
-              "dropoffTime": dropOffTime,
+              "duration": "$min min: $sec s",
               "source": source,
               "destination": destination,
             };

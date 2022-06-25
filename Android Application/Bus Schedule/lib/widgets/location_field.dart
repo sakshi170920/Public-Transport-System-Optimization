@@ -62,7 +62,7 @@ class _LocationFieldState extends State<LocationField> {
       padding: const EdgeInsets.only(top: 5, bottom: 5, left: 10),
       child: CupertinoTextField(
           controller: widget.textEditingController,
-          padding: const EdgeInsets.symmetric(horizontal: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 10),
           placeholder: placeholderText,
           placeholderStyle: GoogleFonts.rubik(color: Colors.indigo[300]),
           decoration: BoxDecoration(
