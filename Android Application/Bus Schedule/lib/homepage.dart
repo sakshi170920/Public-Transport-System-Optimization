@@ -66,11 +66,8 @@ class _MyHomePageState extends State<HomePage> {
 
 
   void navigateToPrepareRide(BuildContext context) {
-    Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (_) =>
-                const PrepareRide(userMode: UserMode.passengerMode)));
+    Navigator.pushNamed(
+        context, PrepareRide.id);
   }
 
   @override

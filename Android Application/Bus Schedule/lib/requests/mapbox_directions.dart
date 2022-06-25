@@ -21,10 +21,12 @@ Future getDriverRouteUsingMapbox() async {
   String coordinates = "";
 
   result.forEach((key, value) {
-    LatLng temp = LatLng(value[1][0], value[1][1]);
-    coordinates += temp.longitude.toString() + "," + temp.latitude.toString();
-    if (key != result.keys.last) {
-      coordinates += ';';
+    if (key != "-1") {
+      LatLng temp = LatLng(value[1][0], value[1][1]);
+      coordinates += temp.longitude.toString() + "," + temp.latitude.toString();
+      if (key != result.keys.last) {
+        coordinates += ';';
+      }
     }
   });
 

@@ -8,7 +8,7 @@ import '../screens/turn_by_turn.dart';
 Widget reviewRideBottomSheet(
     BuildContext context, String distance, String dropOffTime) {
   Map routeInfo =  jsonDecode(getDriverRouteFromSharedPrefs());
-  String sourceAddress = routeInfo["0"][0];
+  String sourceAddress = routeInfo["1"][0];
   String destinationAddress = routeInfo[(routeInfo.length-1).toString()][0];
 
   return Card(

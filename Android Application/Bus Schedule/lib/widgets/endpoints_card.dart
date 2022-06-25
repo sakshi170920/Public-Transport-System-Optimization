@@ -3,7 +3,7 @@ import 'package:busoptimizer/helpers/user_mode.dart';
 
 import 'location_field.dart';
 
-Widget endpointsCard(UserMode userMode, TextEditingController sourceController,
+Widget endpointsCard(TextEditingController sourceController,
     TextEditingController destinationController) {
   return Card(
     elevation: 5,
@@ -29,11 +29,11 @@ Widget endpointsCard(UserMode userMode, TextEditingController sourceController,
             child: Column(
               children: [
                 LocationField(
-                    userMode: userMode,
+                 
                     isDestination: false,
                     textEditingController: sourceController),
                 LocationField(
-                    userMode: userMode,
+               
                     isDestination: true,
                     textEditingController: destinationController),
               ],

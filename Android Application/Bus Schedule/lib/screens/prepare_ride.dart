@@ -1,7 +1,13 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:busoptimizer/helpers/user_mode.dart';
 import 'package:busoptimizer/screens/bus_list.dart';
 import 'package:busoptimizer/widgets/passenger_search_listview.dart';
+import '../helpers/commons.dart';
+import '../helpers/mapbox_handler.dart';
+import '../helpers/shared_prefs.dart';
+import '../main.dart';
 import '../widgets/endpoints_card.dart';
 import '../widgets/search_listview.dart';
 
@@ -9,8 +15,7 @@ import '../widgets/review_ride_fa_button.dart';
 
 class PrepareRide extends StatefulWidget {
   static const String id = "PrepareRideScreen";
-  final UserMode userMode;
-  const PrepareRide({Key? key, required this.userMode}) : super(key: key);
+  const PrepareRide({Key? key}) : super(key: key);
 
   @override
   State<PrepareRide> createState() => _PrepareRideState();
@@ -32,6 +37,8 @@ class _PrepareRideState extends State<PrepareRide> {
   List responses = [];
   TextEditingController sourceController = TextEditingController();
   TextEditingController destinationController = TextEditingController();
+
+  var sourceInfo;
 
   // Define setters to be used by children widgets
   set responsesState(List responses) {
@@ -64,7 +71,6 @@ class _PrepareRideState extends State<PrepareRide> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Mapbox Cabs'),
         actions: const [
           CircleAvatar(backgroundImage: AssetImage('assets/image/person.jpg')),
         ],
@@ -74,8 +80,7 @@ class _PrepareRideState extends State<PrepareRide> {
           physics: const ScrollPhysics(),
           child: Column(
             children: [
-              endpointsCard(
-                  widget.userMode, sourceController, destinationController),
+              endpointsCard(sourceController, destinationController),
               isLoading
                   ? const LinearProgressIndicator(
                       valueColor: AlwaysStoppedAnimation<Color>(Colors.white))
@@ -86,20 +91,39 @@ class _PrepareRideState extends State<PrepareRide> {
                       child: Center(
                           child: Text(hasResponded ? noResponse : noRequest)))
                   : Container(),
-              widget.userMode == UserMode.passengerMode
-                  ? passengerSearchListView(responses, isResponseForDestination,
-                      destinationController, sourceController)
-                  : searchListView(responses, isResponseForDestination,
-                      destinationController, sourceController)
+              passengerSearchListView(responses, isResponseForDestination,
+                  destinationController, sourceController)
             ],
           ),
         ),
       ),
-      floatingActionButton: widget.userMode == UserMode.driverMode
-          ? reviewRideFaButton(context)
-          : ElevatedButton(
-              onPressed: () => {Navigator.pushNamed(context, BusListView.id)},
-              child: const Text("Show Buses")),
+      floatingActionButton: ElevatedButton(
+          onPressed: () async {
+            Map sourceInfo = jsonDecode(getSourceAndDestination('source-info'));
+            Map destinationInfo =
+                jsonDecode(getSourceAndDestination('destination-info'));
+            String source = sourceInfo["name"];
+            String destination = destinationInfo["name"];
+            List src = sourceInfo["location"];
+            List dest = sourceInfo["location"];
+            String routeInfo =
+                "{\"0\":[\"$source\",$src],\"1\":[\"$destination\",$dest]}";
+            sharedPreferences.setString("driverRoute", routeInfo);
+            Map result = await getDirectionsAPIResponse();
+            var distance = (result['distance'] / 1000).toStringAsFixed(1);
+            var dropOffTime = getDropOffTime(result['duration']);
+            Map routeDetails = {
+              "distance": distance,
+              "dropoffTime": dropOffTime,
+              "source": source,
+              "destination": destination,
+            };
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (_) => BusListView(routeDetails: routeDetails)));
+          },
+          child: const Text("Show Buses")),
     );
   }
 }

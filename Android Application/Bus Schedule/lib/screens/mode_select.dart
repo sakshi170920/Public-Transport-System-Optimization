@@ -35,11 +35,9 @@ class ModeSelector extends StatelessWidget {
               width: 200,
               margin: const EdgeInsets.all(20),
               child: ElevatedButton(
-                onPressed: () => Navigator.push(
+                onPressed: () => Navigator.pushNamed(
                     context,
-                    MaterialPageRoute(
-                        builder: (_) => const PrepareRide(
-                            userMode: UserMode.passengerMode))),
+                     PrepareRide.id),
                 child: const Text(
                   "Passenger Mode",
                   style: TextStyle(fontSize: 20),

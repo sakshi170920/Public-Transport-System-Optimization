@@ -1,22 +1,28 @@
 import 'dart:io';
 
+import 'package:busoptimizer/helpers/mapbox_handler.dart';
+import 'package:busoptimizer/main.dart';
+import 'package:busoptimizer/requests/mapbox_directions.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:busoptimizer/helpers/shared_prefs.dart';
 
+import '../helpers/commons.dart';
+
 class BusListView extends StatefulWidget {
   static const String id = "BusListViewScreen";
-  const BusListView({Key? key}) : super(key: key);
+  Map routeDetails;
+  BusListView({Key? key, required this.routeDetails}) : super(key: key);
 
   @override
   State<BusListView> createState() => _BusListViewState();
 }
 
 class _BusListViewState extends State<BusListView> {
-  late String source;
-  late String destination;
+
   bool isValidInput = true;
   int sourceInd = 0;
   int destinationInd = 0;
@@ -25,9 +31,9 @@ class _BusListViewState extends State<BusListView> {
   Future<String> getData() async {
     String url =
         "http://ec2-44-201-223-168.compute-1.amazonaws.com:4000/getBusesBySrcDest?src=" +
-            source.replaceAll("\"", "").toLowerCase() +
+            widget.routeDetails["source"].replaceAll("\"", "").toLowerCase() +
             "&dest=" +
-            destination.replaceAll("\"", "").toLowerCase();
+             widget.routeDetails["destination"].replaceAll("\"", "").toLowerCase();
     final response = await http.get(Uri.parse(url));
 
     this.setState(() {
@@ -55,7 +61,7 @@ class _BusListViewState extends State<BusListView> {
             continue;
           }
           print(data[i][j][0]);
-          if (data[i][j][0].toLowerCase() == source) {
+          if (data[i][j][0].toLowerCase() ==  widget.routeDetails["source"]) {
             // print("worked");
             sourceInd = j;
             break;
@@ -66,7 +72,7 @@ class _BusListViewState extends State<BusListView> {
           if (data[i][j] is String) {
             continue;
           }
-          if (data[i][j][0].toLowerCase() == destination) {
+          if (data[i][j][0].toLowerCase() ==  widget.routeDetails["destination"]) {
             destinationInd = j;
             break;
           }
@@ -76,16 +82,18 @@ class _BusListViewState extends State<BusListView> {
     return "Success!";
   }
 
+  // _initialiseDirectionsResponse(Map modifiedResponse) {
+  //   distance = (modifiedResponse['distance'] / 1000).toStringAsFixed(1);
+  //   dropOffTime = getDropOffTime(widget.modifiedResponse['duration']);
+  //   geometry = widget.modifiedResponse['geometry'];
+  // }
+
   @override
   void initState() {
     super.initState();
-    source = getSourceAndDestination('source');
-    destination = getSourceAndDestination('destination');
-    source = "hingoli";
-    destination = "sangli";
 
     /// this need to removed
-    this.getData();
+    getData();
   }
 
   @override
@@ -125,7 +133,7 @@ class _BusListViewState extends State<BusListView> {
                                         fontSize: 12, color: Colors.white),
                                   ),
                                   Text(
-                                    source.replaceAll("\"", "").toUpperCase(),
+                                     widget.routeDetails["source"].replaceAll("\"", "").toUpperCase(),
                                     style: const TextStyle(
                                         fontSize: 14,
                                         color: Colors.white,
@@ -149,7 +157,7 @@ class _BusListViewState extends State<BusListView> {
                                         fontSize: 12, color: Colors.white),
                                   ),
                                   Text(
-                                    destination
+                                     widget.routeDetails["destination"]
                                         .replaceAll("\"", "")
                                         .toUpperCase(),
                                     style: const TextStyle(
@@ -175,7 +183,7 @@ class _BusListViewState extends State<BusListView> {
                               ),
                               Expanded(
                                 child: Text(
-                                  " 258KM ,via " +
+                                  " ${ widget.routeDetails["distance"]} ,via " +
                                       data[indexingOfData[index]]
                                               [destinationInd - 1]
                                           [0], // hear need to add kilometer

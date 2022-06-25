@@ -17,11 +17,11 @@ String getDriverRouteFromSharedPrefs() {
 
 String getSourceAndDestination(String type) {
   String sourceAddress =
-      sharedPreferences.getString('source')!;
+      sharedPreferences.getString('source-info')!;
   String destinationAddress =
-      sharedPreferences.getString('destination')!;
+      sharedPreferences.getString('destination-info')!;
 
-  if (type == 'source') {
+  if (type == 'source-info') {
     return sourceAddress;
   } else {
     return destinationAddress;

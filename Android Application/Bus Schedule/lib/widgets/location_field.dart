@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mapbox_gl/mapbox_gl.dart';
-import 'package:busoptimizer/helpers/user_mode.dart';
+import '../requests/mapbox_driver.dart';
 import '../screens/prepare_ride.dart';
 
 import '../helpers/mapbox_handler.dart';
@@ -13,12 +13,10 @@ import '../helpers/shared_prefs.dart';
 import '../main.dart';
 
 class LocationField extends StatefulWidget {
-  final UserMode userMode;
   final bool isDestination;
   final TextEditingController textEditingController;
   const LocationField({
     Key? key,
-    required this.userMode,
     required this.isDestination,
     required this.textEditingController,
   }) : super(key: key);
@@ -46,10 +44,8 @@ class _LocationFieldState extends State<LocationField> {
 
   _searchHandler(String value) async {
     // Get response using Mapbox Search API
-    List<String> cities = ["mumbai", "pune", "karad", "satara"];
-    List response = widget.userMode == UserMode.passengerMode
-        ? cities
-        : await getParsedResponseForQuery(value);
+    List citiesData = await getAllCities();
+    List response = citiesData;
 
     // Set responses and isDestination in parent
     PrepareRide.of(context)?.responsesState = response;
@@ -58,27 +54,10 @@ class _LocationFieldState extends State<LocationField> {
     setState(() => query = value);
   }
 
-  _useCurrentLocationButtonHandler() async {
-    if (!widget.isDestination) {
-      LatLng currentLocation = getCurrentLatLngFromSharedPrefs();
-
-      // Get the response of reverse geocoding and do 2 things:
-      // 1. Store encoded response in shared preferences
-      // 2. Set the text editing controller to the address
-      var response = await getParsedReverseGeocoding(currentLocation);
-      sharedPreferences.setString('source', json.encode(response));
-      String place = response['place'];
-      widget.textEditingController.text = place;
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
     String placeholderText = widget.isDestination ? 'Where to?' : 'Where from?';
-    IconData? iconData =
-        !widget.isDestination && widget.userMode == UserMode.driverMode
-            ? Icons.my_location
-            : null;
     return Padding(
       padding: const EdgeInsets.only(top: 5, bottom: 5, left: 10),
       child: CupertinoTextField(
@@ -91,11 +70,7 @@ class _LocationFieldState extends State<LocationField> {
             borderRadius: const BorderRadius.all(Radius.circular(5)),
           ),
           onChanged: _onChangeHandler,
-          suffix: IconButton(
-              onPressed: () => _useCurrentLocationButtonHandler(),
-              padding: const EdgeInsets.all(10),
-              constraints: const BoxConstraints(),
-              icon: Icon(iconData, size: 16))),
+      )
     );
   }
 }

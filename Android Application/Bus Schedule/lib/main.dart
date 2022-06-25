@@ -47,12 +47,11 @@ class MyApp extends StatelessWidget {
         WelcomeScreen.id: (context) => const WelcomeScreen(),
         RegistrationScreen.id: (context) => const RegistrationScreen(),
         Home.id: (context) => const Home(),
-        PrepareRide.id: (context) =>
-            const PrepareRide(userMode: UserMode.passengerMode),
+        PrepareRide.id: (context) =>const PrepareRide(),
         ModeSelector.id: (context) => const ModeSelector(),
         ReviewRide.id: (context) => const ReviewRide(modifiedResponse: {},),
         TurnByTurn.id: (context) => const TurnByTurn(),
-        BusListView.id: (context) => const BusListView(),
+        BusListView.id: (context) => BusListView(routeDetails: {},),
         BusId.id: (context) => const BusId()
 
       },

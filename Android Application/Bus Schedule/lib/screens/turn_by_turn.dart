@@ -14,7 +14,6 @@ class TurnByTurn extends StatefulWidget {
 }
 
 class _TurnByTurnState extends State<TurnByTurn> {
-
   var wayPoints = <WayPoint>[];
 
   // Config variables for Mapbox Navigation
@@ -52,9 +51,11 @@ class _TurnByTurnState extends State<TurnByTurn> {
     Map routeInfo = jsonDecode(getDriverRouteFromSharedPrefs());
 
     routeInfo.forEach((key, value) {
-      wayPoints
-        .add(WayPoint(name: value[0], latitude: value[1][0], longitude: value[1][1]));
-     });
+      if (key != "-1") {
+        wayPoints.add(WayPoint(
+            name: value[0], latitude: value[1][0], longitude: value[1][1]));
+      }
+    });
 
     // Start the trip
     await directions.startNavigation(wayPoints: wayPoints, options: _options);

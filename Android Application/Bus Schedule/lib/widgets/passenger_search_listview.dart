@@ -18,15 +18,15 @@ Widget passengerSearchListView(
         children: [
           ListTile(
             onTap: () {
-              String text = responses[index];
+              String text = responses[index]["name"];
               if (isResponseForDestination) {
                 destinationController.text = text;
                 sharedPreferences.setString(
-                    'destination', json.encode(responses[index]));
+                    'destination-info', json.encode(responses[index]));
               } else {
                 sourceController.text = text;
                 sharedPreferences.setString(
-                    'source', json.encode(responses[index]));
+                    'source-info', json.encode(responses[index]));
               }
               FocusManager.instance.primaryFocus?.unfocus();
             },
@@ -34,7 +34,7 @@ Widget passengerSearchListView(
               height: double.infinity,
               child: CircleAvatar(child: Icon(Icons.map)),
             ),
-            title: Text(responses[index],
+            title: Text(responses[index]["name"],
                 style: const TextStyle(fontWeight: FontWeight.bold)),
           ),
           const Divider(),
